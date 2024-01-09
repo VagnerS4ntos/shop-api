@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	background-color: #111;
+	color: white;
+}
+
+label {
+	color: white;
+}
+
+progress::-webkit-progress-value {
+	background-color: green;
+}
+
+progress::-moz-progress-bar {
+	background-color: green;
+}
+
+.paginationContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 1rem 0;
+}
+
+.paginationContainer a {
+	padding: 3px 5px;
+	margin: 5px;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
+	border: 1px solid;
+}
+
+.paginationContainer a:hover {
+	background-color: white;
+	color: black;
+}
+
+.paginationActive a {
+	background-color: white;
+	color: black;
+}

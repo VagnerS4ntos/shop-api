@@ -10,12 +10,14 @@ import DeleteProduct from '@/components/DeleteProduct';
 import UpdateProduct from '@/components/UpdateProduct';
 import { VscNewFile } from 'react-icons/vsc';
 import CreateProduct from '@/components/CreateProduct';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
 	const [products, setProducts] = React.useState<productT[]>([]);
 	const [renderProducts, setRenderProducts] = React.useState<productT[]>([]);
 	const [loading, setLoading] = React.useState(true);
 	const [createRequest, setCreateRequest] = React.useState(false);
+	const router = useRouter();
 
 	const [currentPage, setCurrentPage] = React.useState(1);
 	const productsPerPege = 25;
@@ -34,6 +36,7 @@ export default function Home() {
 	}
 
 	React.useEffect(() => {
+		router.push('/');
 		const apiCollection = collection(db, 'api');
 		const unsubscribe = onSnapshot(apiCollection, (snapshot) => {
 			snapshot.docChanges().forEach(() => {

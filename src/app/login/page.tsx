@@ -35,7 +35,6 @@ export default function Login() {
 						Authorization: `Bearer ${idToken}`,
 					},
 				}).then(() => {
-					router.push('/');
 					router.refresh();
 				});
 			})

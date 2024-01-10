@@ -63,7 +63,6 @@ export default function UpdateProduct({
 						getDownloadURL(uploadTask.snapshot.ref).then(async (url) => {
 							const copyProduct = _.omit(product, ['img', 'id']);
 							if (_.isEqual(copyProduct, updateData)) {
-								console.log('Os dados não foram alterados');
 								return;
 							}
 							await updateDoc(doc(db, 'api', product.id), {
@@ -73,7 +72,6 @@ export default function UpdateProduct({
 							});
 							formData.reset();
 							setUpdateRequest(false);
-							console.log('Dados atualizado com sucesso');
 						});
 					},
 				);
@@ -88,14 +86,12 @@ export default function UpdateProduct({
 
 			//Se não houver alteração, não faz a requisição
 			if (_.isEqual(copyProduct, updateData)) {
-				console.log('Os dados não foram alterados');
 				setUpdateRequest(false);
 				return;
 			}
 
 			await updateDoc(doc(db, 'api', product.id), updateData);
 			setUpdateRequest(false);
-			console.log('Dados atualizado com sucesso');
 		} catch (error: any) {
 			console.log(error);
 		} finally {

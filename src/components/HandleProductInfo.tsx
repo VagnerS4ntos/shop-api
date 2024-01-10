@@ -195,7 +195,6 @@ export default function HandleProductInfo({
 							'Cancelar'
 						)}
 					</button>
-					{/* <span className="text-red-500 text-sm">{error}</span> */}
 				</div>
 			</form>
 		</section>

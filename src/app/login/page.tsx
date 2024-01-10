@@ -34,10 +34,9 @@ export default function Login() {
 					headers: {
 						Authorization: `Bearer ${idToken}`,
 					},
-				}).then((response) => {
-					if (response.status === 200) {
-						router.push('/');
-					}
+				}).then(() => {
+					router.push('/');
+					router.refresh();
 				});
 			})
 			.catch((error) => {
@@ -97,7 +96,7 @@ export default function Login() {
 					{requesting ? (
 						<AiOutlineLoading3Quarters className="animate-spin" />
 					) : (
-						'Enviar'
+						'Entrar'
 					)}
 				</button>
 				<span className="text-red-500 text-sm">{error}</span>

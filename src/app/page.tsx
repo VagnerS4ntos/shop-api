@@ -54,7 +54,10 @@ export default function Home() {
 		);
 		setSlicedProducts(slicedProducts);
 
-		if (slicedProducts.length % 10 == 0 && currentPage > 1) {
+		if (
+			currentPage > 1 &&
+			currentPage * productsPerPege == products.length + productsPerPege
+		) {
 			setCurrentPage((prev) => prev - 1);
 		}
 	}, [products, currentPage, renderProducts]);
